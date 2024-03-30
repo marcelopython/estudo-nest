@@ -4,10 +4,8 @@ import { readFile, writeFile } from "fs/promises";
 export class MessagesRepository {
     
     async findOne(id: string) {
-
-        const messages = this.getAllJson()
+        const messages = await this.getAllJson()
         return messages[id]
-
     }
 
     async findAll() {
@@ -16,7 +14,7 @@ export class MessagesRepository {
 
     async create(content: string) {
 
-        const messages = this.getAllJson()
+        const messages = await this.getAllJson()
 
         const id = Math.floor(Math.random() * 999)
 
